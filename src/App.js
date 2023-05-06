@@ -3,11 +3,11 @@ import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   return (
-    <div className="grid-cols-11 grid">
-      <div className="col-span-3">
+    <div className="grid-cols-11 grid w-screen h-screen">
+      <div className="col-span-2 h-screen">
         <Sidebar />
       </div>
-      <div className="col-span-8">
+      <div className="col-span-9 h-screen">
         <Dashboard />
       </div>
     </div>
