@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import TableControls from "./TableControls";
+import TableRow from "./TableRow";
+import TableHeader from "./TableHeader";
 
 const Table = ({ data }) => {
   const [currentFilter, setCurrentFilter] = useState("raw_broadmatch_data");
+  const [difficultyIndex, setDifficultyIndex] = useState(-1);
   const columns = data["columnNames"] || [];
   const raw_related_data = data["raw_related_data"] || [];
   return (
@@ -13,37 +16,13 @@ const Table = ({ data }) => {
       />
 
       <table className="mt-4 w-full ">
-        <thead
-          className="grid"
-          style={{
-            gridTemplateColumns: `repeat(${columns?.length},1fr)`,
-          }}
-        >
-          {columns.map((column, index) => {
-            return (
-              <th key={index} className="text-sm">
-                {column}
-              </th>
-            );
-          })}
-        </thead>
+        <TableHeader
+          columns={columns}
+          setDifficultyIndex={setDifficultyIndex}
+        />
         {data[currentFilter]?.map((row, index) => {
           return (
-            <tr
-              className="grid"
-              style={{
-                gridTemplateColumns: `repeat(${row.length},1fr)`,
-              }}
-              key={index}
-            >
-              {row.map((column, index) => {
-                return (
-                  <td key={index} className="text-sm overflow-hidden">
-                    {column}
-                  </td>
-                );
-              })}
-            </tr>
+            <TableRow row={row} key={index} difficultyIndex={difficultyIndex} />
           );
         })}
       </table>
