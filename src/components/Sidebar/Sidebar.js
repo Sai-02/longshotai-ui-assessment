@@ -77,7 +77,7 @@ const Sidebar = () => {
           <FontAwesomeIcon icon={faCircleChevronLeft} />
           <span className="">Collapse</span>
         </div>
-        <div className="rounded bg-blue-200 p-3">
+        <div className="rounded bg-blue-100 p-3">
           <div className="flex gap-2">
             <div className="rounded-full bg-purple-500 text-white p-1 w-8 h-8 grid place-items-center">
               KS
