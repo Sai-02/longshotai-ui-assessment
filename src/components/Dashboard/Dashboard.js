@@ -24,7 +24,7 @@ const Dashboard = ({ data }) => {
       <div className="border-t border-slate-300"></div>
 
       <div className="flex flex-col gap-2 justify-center mx-auto">
-        <div className="flex gap-4 justify-center ">
+        <div className="flex gap-4 justify-between ">
           <div className="rounded bg-white border border-slate-100 p-4 flex flex-col gap-2">
             <div className="">
               <p className="text-sm text-gray-600">Volume</p>

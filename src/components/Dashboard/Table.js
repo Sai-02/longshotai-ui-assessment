@@ -15,7 +15,7 @@ const Table = ({ data }) => {
         currentFilter={currentFilter}
       />
 
-      <table className="mt-4 w-full ">
+      <table className="mt-4 w-full max-w-[45rem] ">
         <TableHeader
           columns={columns}
           setDifficultyIndex={setDifficultyIndex}
