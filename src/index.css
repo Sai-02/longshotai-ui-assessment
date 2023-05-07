@@ -7,3 +7,37 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* ==============================================================
+
+      MUI Overrides
+
+=================================================================*/
+
+.MuiCircularProgress-circle {
+  color: #fcd34d;
+}
+
+/*
+====================================================================
+
+   Table Global Styles
+
+====================================================================
+*/
+
+th {
+  padding: 0.5rem 1rem;
+  font-weight: 400;
+  background: #e4e4e7;
+  border: 1px solid rgb(172, 166, 166);
+}
+td {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+}
+tr {
+  border: 1px solid rgb(172, 166, 166);
+}
