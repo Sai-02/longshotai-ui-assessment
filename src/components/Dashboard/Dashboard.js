@@ -2,7 +2,7 @@ import React from "react";
 import USA_SVG_ICON from "../../assets/usaFlagIcon.svg";
 import CircularProgressWithLabel from "@mui/material/CircularProgress";
 import Table from "./Table";
-const Dashboard = () => {
+const Dashboard = ({ data }) => {
   return (
     <div className="h-screen py-2 px-4 bg-slate-50 flex flex-col gap-3 overflow-y-auto">
       <p className="flex gap-1">
@@ -13,7 +13,7 @@ const Dashboard = () => {
         <p className="flex gap-1">
           <span className="font-semibold text-xl">Keyword:</span>
           <span className="font-medium text-slate-400 text-lg">
-            shopping in barcelona
+            {data?.topic}
           </span>
         </p>
         <p className="text-slate-500 flex items-center gap-2">
@@ -81,7 +81,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <Table />
+        <Table data={data} />
       </div>
     </div>
   );

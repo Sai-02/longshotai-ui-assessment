@@ -1,6 +1,6 @@
 import Dashboard from "./components/Dashboard/Dashboard";
 import Sidebar from "./components/Sidebar/Sidebar";
-
+import { data } from "./data";
 function App() {
   return (
     <div className="grid-cols-11 grid w-screen h-screen">
@@ -8,7 +8,7 @@ function App() {
         <Sidebar />
       </div>
       <div className="col-span-9 h-screen">
-        <Dashboard />
+        <Dashboard data={data} />
       </div>
     </div>
   );

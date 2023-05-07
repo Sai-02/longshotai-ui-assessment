@@ -1,43 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import TableControls from "./TableControls";
 
-const Table = () => {
+const Table = ({ data }) => {
+  const [currentFilter, setCurrentFilter] = useState("raw_broadmatch_data");
+  const columns = data["columnNames"] || [];
+  const raw_related_data = data["raw_related_data"] || [];
   return (
-    <div className="mt-3">
-      <TableControls />
+    <div className="mt-3 ">
+      <TableControls
+        setCurrentFilter={setCurrentFilter}
+        currentFilter={currentFilter}
+      />
 
-      <table className="mt-4 w-full">
-        <thead className="grid grid-cols-18 ">
-          <th className="">
-            {" "}
-            <input type="checkbox" />{" "}
-          </th>
-          <th className="col-span-5">Keyword</th>
-          <th className="col-span-2">Intent</th>
-          <th className="col-span-2">Volume</th>
-          <th className="col-span-2">KD%</th>
-          <th className="col-span-2">CPC (USD)</th>
-          <th className="col-span-2">COM</th>
-          <th className="col-span-2">Results</th>
+      <table className="mt-4 w-full ">
+        <thead
+          className="grid"
+          style={{
+            gridTemplateColumns: `repeat(${columns?.length},1fr)`,
+          }}
+        >
+          {columns.map((column, index) => {
+            return (
+              <th key={index} className="text-sm">
+                {column}
+              </th>
+            );
+          })}
         </thead>
-        {[...Array(7)].map((val, index) => {
+        {data[currentFilter]?.map((row, index) => {
           return (
-            <tr className="grid grid-cols-18 items-center " key={index}>
-              <td>
-                {" "}
-                <input type="checkbox" />{" "}
-              </td>
-              <td className="col-span-5">shopping in barcelona</td>
-              <td className="col-span-2 flex items-center justify-center">
-                <span className="text-yellow-700 bg-yellow-200 rounded-full p-1">
-                  C
-                </span>
-              </td>
-              <td className="col-span-2">Volume</td>
-              <td className="col-span-2">KD%</td>
-              <td className="col-span-2">CPC (USD)</td>
-              <td className="col-span-2">COM</td>
-              <td className="col-span-2">Results</td>
+            <tr
+              className="grid"
+              style={{
+                gridTemplateColumns: `repeat(${row.length},1fr)`,
+              }}
+              key={index}
+            >
+              {row.map((column, index) => {
+                return (
+                  <td key={index} className="text-sm overflow-hidden">
+                    {column}
+                  </td>
+                );
+              })}
             </tr>
           );
         })}
