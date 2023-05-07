@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 
-const TableHeader = ({ columns, setDifficultyIndex }) => {
+const TableHeader = ({ columns, setDifficultyIndex, setIntentIndex }) => {
   useEffect(() => {
     columns.forEach((val, index) => {
       if (val === "Keyword Difficulty") {
         setDifficultyIndex(index);
+      }
+      if (val === "Intent") {
+        setIntentIndex(index);
       }
     });
   }, []);

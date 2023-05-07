@@ -1,6 +1,6 @@
 import React from "react";
 import TableColumn from "./TableColumn";
-const TableRow = ({ row, difficultyIndex }) => {
+const TableRow = ({ row, difficultyIndex, intentIndex }) => {
   return (
     <tr
       className="grid"
@@ -14,6 +14,7 @@ const TableRow = ({ row, difficultyIndex }) => {
             column={column}
             index={index}
             difficultyIndex={difficultyIndex}
+            intentIndex={intentIndex}
           />
         );
       })}
